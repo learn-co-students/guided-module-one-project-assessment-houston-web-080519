@@ -1,4 +1,4 @@
-class UserInput < ActiveRecord::Migration[5.2]
+class UserInputMigration < ActiveRecord::Migration[5.2]
     def change
   
       create_table(:userinput) do | table |
