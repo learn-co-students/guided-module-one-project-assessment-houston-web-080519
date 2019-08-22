@@ -68,23 +68,3 @@ while !quit_game
         exit
     end
 end
-
-
-#         mad_lib_array.each do |word|
-#             if word == "_"
-#                     puts "Give me a word."
-#                     temp_word = gets.chomp
-                
-#                     word = temp_word
-#             end
-#             return_story << word
-#         end
-        
-#         puts return_story.join(" ")
-#         puts "hit enter to continue..."
-#         gets
-
-#         exit
-
-#     end
-# end
