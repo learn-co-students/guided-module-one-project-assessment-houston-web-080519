@@ -17,25 +17,29 @@ while !quit_game
             end
 
             mad_lib_array = current_mad_lib.story.split(" ")
-            mad_lib_array.each do |word|
+
+            partsarray = []
+            index_counter = 0
+            mad_lib_array.each_with_index do | word, index |
+            #part_of_speech = nil # ?
             # if we hit a special character we prompt the user
-                if word == "_"
-                    #function prompt
-                        puts "Give me a word."
-                        temp_word = gets.chomp
-                    
-                        word = temp_word
+                
+                if word == "_" 
+                    puts "Give me a #{PartsOfSpeech.all.find_by(order_id: index_counter).part_of_speech}."
+                    temp_word = gets.chomp
+                    partsarray.push(temp_word)
+                    index_counter += 1
+                else 
+                    partsarray.push(word)
                 end
-                puts "we are shoveling in #{word}"
-                return_story << word
-            # if we hit the end of the array, we read the madlib
             end
-            
-            # binding.pry
-            puts return_story.join(" ")
+
+            puts partsarray.join(" ")
             puts "hit enter to continue..."
             gets
-    
+
+            exit
+        end#if response is codeing
     # if users_response == "Coding"
     #     while true do
     #     counter = 101
@@ -68,11 +72,11 @@ while !quit_game
         #after the final PoSpeech prompt for story id 1, they are returned
         #the completed story 1 with their inputs interpolated into the 
         #blanks.
-    end#coding
+    #coding
 
 
-# if users_response == "Last Weekend"
-# end
+    # if users_response == "Last Weekend"
+    # end
     if users_response == "Last Weekend"
         return_story = []
         mad_lib_id = 2
@@ -83,7 +87,6 @@ while !quit_game
 
         
         # split the story string into an array
-        # binding.pry
         mad_lib_array = current_mad_lib.story.split(" ")
         # iterate through the story array 
         mad_lib_array.each do |word|
@@ -95,12 +98,11 @@ while !quit_game
                 
                     word = temp_word
             end
-            puts "we are shoveling in #{word}"
+            #puts "we are shoveling in #{word}"
             return_story << word
         # if we hit the end of the array, we read the madlib
         end
         
-        # binding.pry
         puts return_story.join(" ")
         puts "hit enter to continue..."
         gets
@@ -115,7 +117,7 @@ while !quit_game
     #     #prompt the user
     #     #return the user input
     # end
+
+
+
 end
-
-
-

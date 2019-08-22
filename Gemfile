@@ -8,3 +8,5 @@ gem "require_all"
 gem "faker"
 gem "rake"
 gem "tty"
+gem "artii"
+gem 'colorize', '~> 0.8.1'
