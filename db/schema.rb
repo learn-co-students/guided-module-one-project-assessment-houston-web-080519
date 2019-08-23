@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 3) do
   create_table "madlib", force: :cascade do |t|
     t.integer "story_id"
     t.string "story"
+    t.string "title"
   end
 
   create_table "partsofspeech", force: :cascade do |t|

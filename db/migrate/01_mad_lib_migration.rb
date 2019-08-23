@@ -4,6 +4,7 @@ class MadLibMigration < ActiveRecord::Migration[5.2]
       create_table(:madlib) do | table |
         table.integer(:story_id)
         table.string(:story)
+        table.string(:title)
       end
   
     end

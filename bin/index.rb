@@ -9,62 +9,43 @@ while !quit_game
         ["Coding",
         "Last Weekend"])
 
-        if users_response == "Coding"
-            return_story = []
-            mad_lib_id = 1
-            current_mad_lib = MadLib.all.find do |mad_lib|
-                mad_lib.story_id == mad_lib_id
-            end
 
-            mad_lib_array = current_mad_lib.story.split(" ")
+        MadLib.all.each do | madlib |
 
-            partsarray = []
-            index_counter = 0
-            mad_lib_array.each_with_index do | word, index |
-                if word == "_" 
-                    puts "Give me a(n) #{PartsOfSpeech.all.find_by(order_id: index_counter, story_id: 1).part_of_speech}."
-                    temp_word = gets.chomp
-                    partsarray.push(temp_word)
-                    index_counter += 1
-                else 
-                    partsarray.push(word)
+            if users_response == madlib.title
+                #Find the story id in the seeded stories that correlates to the selected story.
+                mad_lib_array = madlib.story.split(" ")
+                #Split that story to make an array of each word.
+                partsarray = []
+                index_counter = 0
+                mad_lib_array.each_with_index do | word, index |
+                    if word == "_" 
+                        puts "Give me a(n) #{PartsOfSpeech.all.find_by(order_id: index_counter, story_id: madlib.story_id).part_of_speech}."
+                        #Iterate over story array. If an item is an underscore, print out the correlating part
+                        #of speech that would fit to form a good mad lib.
+                        temp_word = gets.chomp
+                        partsarray.push(temp_word)
+                        #push the user response into the empty partsarray.
+                        index_counter += 1
+                    else 
+                        partsarray.push(word)
+                        #push all the other words from the story in, too.
+                    end
                 end
+
+                puts partsarray.join(" ")
+                #return the completed story as a string instead of an array.
+                puts "hit enter to continue..."
+                gets
+
+                exit
             end
-
-            puts partsarray.join(" ")
-            puts "hit enter to continue..."
-            gets
-
-            exit
-        end
-
-
-    if users_response == "Last Weekend"
-        return_story = []
-        mad_lib_id = 2
-        current_mad_lib = MadLib.all.find do |mad_lib|
-            mad_lib.story_id == mad_lib_id
-        end
-
-        mad_lib_array = current_mad_lib.story.split(" ") 
-
-        partsarray = []
-        index_counter = 0
-        mad_lib_array.each_with_index do | word, index |
-            if word == "_" 
-                puts "Give me a(n) #{PartsOfSpeech.all.find_by(order_id: index_counter, story_id: 2).part_of_speech}."
-                temp_word = gets.chomp
-                partsarray.push(temp_word)
-                index_counter += 1
-            else 
-                partsarray.push(word)
-            end
-        end
-
-        puts partsarray.join(" ")
-        puts "hit enter to continue..."
-        gets
-
-        exit
-    end
+        end 
 end
+
+# I am realizing that while this works and accomplishes what I set out to accomplish,
+# it does not make use of a many to many relationship. It uses a one to many, with story
+# to part of speech. I started out with an idea I wanted to make, and the relationships 
+# I created from that idea were kind of secondary to wanting to create a fun madlib game.
+# If I were to go back and do things correctly, maybe I would do I database of teachers and
+# students, with a joining class of grades, to create a gradebook cli app. 
