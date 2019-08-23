@@ -79,7 +79,7 @@ def opponentinfo
     sleep(0.75)
     choosefight = prompt.select("Ready To Start", ["Back"])
     if choosefight == "Back"
-        realfightinfo
+        choosemoves
     end
 end
 
