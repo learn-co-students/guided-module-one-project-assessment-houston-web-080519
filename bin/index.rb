@@ -42,10 +42,3 @@ while !quit_game
             end
         end 
 end
-
-# I am realizing that while this works and accomplishes what I set out to accomplish,
-# it does not make use of a many to many relationship. It uses a one to many, with story
-# to part of speech. I started out with an idea I wanted to make, and the relationships 
-# I created from that idea were kind of secondary to wanting to create a fun madlib game.
-# If I were to go back and do things correctly, maybe I would do I database of teachers and
-# students, with a joining class of grades, to create a gradebook cli app. 

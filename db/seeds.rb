@@ -20,16 +20,16 @@ ving = PartsOfSpeech.create(order_id: 10, story_id: story1.story_id, part_of_spe
 puts "adding story 2"
 story2 = MadLib.create(story_id: 2, story: "Have you ever wished you could _ a(n) _ ? Last weekend, I did just that. I went to _ on my _ . On the way, I stopped for _ at a(n) _ place called _ . If you have never been there, I highly recommend it. My favorite dish there is the _ . Afterwards, I was super full, but I went to _ and climbed to the top of the _ . What a view! We should all go there _ .", title: 'Last Weekend')
 
-n1 = PartsOfSpeech.create(order_id: 0, story_id: story2.story_id, part_of_speech: "Noun")
-p2 = PartsOfSpeech.create(order_id: 1, story_id: story2.story_id, part_of_speech: "Place")
-mot3 = PartsOfSpeech.create(order_id: 2, story_id: story2.story_id, part_of_speech: "Mode of Transportation")
-n2 = PartsOfSpeech.create(order_id: 3, story_id: story2.story_id, part_of_speech: "Noun")
-a1 = PartsOfSpeech.create(order_id: 4, story_id: story2.story_id, part_of_speech: "Adjective")
-p3 = PartsOfSpeech.create(order_id: 5, story_id: story2.story_id, part_of_speech: "Place")
-n4 = PartsOfSpeech.create(order_id: 6, story_id: story2.story_id, part_of_speech: "Noun")
+v1 = PartsOfSpeech.create(order_id: 0, story_id: story2.story_id, part_of_speech: "Verb")
+n2 = PartsOfSpeech.create(order_id: 1, story_id: story2.story_id, part_of_speech: "Noun")
+pl2 = PartsOfSpeech.create(order_id: 2, story_id: story2.story_id, part_of_speech: "Place")
+mot3 = PartsOfSpeech.create(order_id: 3, story_id: story2.story_id, part_of_speech: "Mode of Transportation")
+no1 = PartsOfSpeech.create(order_id: 4, story_id: story2.story_id, part_of_speech: "Plural Noun")
+p3 = PartsOfSpeech.create(order_id: 5, story_id: story2.story_id, part_of_speech: "Adjective")
+n4 = PartsOfSpeech.create(order_id: 6, story_id: story2.story_id, part_of_speech: "Place")
 f1 = PartsOfSpeech.create(order_id: 7, story_id: story2.story_id, part_of_speech: "Food")
 p4 = PartsOfSpeech.create(order_id: 8, story_id: story2.story_id, part_of_speech: "Place")
 n5 = PartsOfSpeech.create(order_id: 9, story_id: story2.story_id, part_of_speech: "Noun")
-ft1 = PartsOfSpeech.create(order_id: 10, story_id: story2.story_id, part_of_speech: "Future Time (i.e. next weekend, next Christmas, etc.")
+ft1 = PartsOfSpeech.create(order_id: 10, story_id: story2.story_id, part_of_speech: "Future Time (i.e. next weekend, next Christmas, etc.)")
 
 puts "seeding COMPLETE!"
